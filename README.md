@@ -7,7 +7,7 @@ Protocol Buffers are very similar to the Apache Thrift protocol (used by Faceboo
 
 ## Show me some code
 
-** Write the Protobuf IDL (hotel_tag.proto for eg.)**
+Write the Protobuf IDL (hotel_tag.proto for eg.)
 ```
 package protobuf.socketrpc;
 option py_generic_services = true;
@@ -33,13 +33,13 @@ service HotelService
 
 ```
 
-** Run the protobuf compiler to generate code and stubs **
+Run the protobuf compiler to generate code and stubs 
 ```
 protoc hotel_tag.proto --python_out=.
 ```
 This generates hotel_tag_pb2.py which contains Service stub
 
-** Implement the Service Stub **
+Implement the Service Stub 
 ```python
 import hotel_tag_pb2 as pb_test
 
@@ -53,7 +53,7 @@ class hotel_service_impl(pb_test.HotelService):
         done.run(response)
 ```
 
-** Server **
+Server 
 ```python
 import os, sys
 import gorpc.server
@@ -75,7 +75,7 @@ server.run()
 
 ```
 
-** Client **
+Client 
 ```python
 
 from  gorpc import RpcService
