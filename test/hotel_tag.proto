@@ -1,0 +1,21 @@
+package protobuf.socketrpc;
+option py_generic_services = true;
+option java_generic_services = true;
+
+message hotel_request{
+	required string name =1 [default ="Zo rooms"];
+}
+
+message hotel {
+	required string hn = 20 [default ="Taj Hotel "] ;
+	required int32 restaurant_count = 9 [default = 1] ;
+	required int32 minprice = 13 [default = 2000] ;
+	required string hotel_url = 15 [default ="http://www.taj.com"] ;
+	required int32 rating = 17 [default = 2] ;
+
+}
+
+service HotelService  
+{
+	rpc get_hotel_details(hotel_request) returns(hotel);
+}
